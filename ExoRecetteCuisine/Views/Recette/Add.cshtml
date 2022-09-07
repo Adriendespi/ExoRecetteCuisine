@@ -1,0 +1,59 @@
+﻿@model Recetteform
+
+<form class="text-primary" method="post" asp-controller="Recette" asp-action="Add">
+    <div class="mb-1">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" placeholder="Nom" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-1">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" placeholder="Description" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-1">
+        <label asp-for="Ingredient"></label>
+        <div id="contain">
+        <input asp-for="Ingredient" />
+
+        </div>
+
+
+        
+        <span asp-validation-for="Ingredient" class="text-danger"></span>
+        <button type="button" id="plus" >+</button>
+        <button type="button" id="moins" >-</button>
+    </div>
+    
+
+    <button type="submit" class="btn btn-dark">Ajouter</button>
+</form>
+
+
+@section Scripts
+{
+    <script>
+        const info=document.getElementById('plus');
+        const contain=document.getElementById('contain')
+        info.addEventListener('click',function()
+        {
+            const input=document.createElement("input")
+            input.setAttribute('name','Ingredient')
+            contain.appendChild(input)
+
+        })
+
+        const info2=document.getElementById('moins');
+        info2.addEventListener('click',function()
+        {
+            contain.removeChild(contain.lastChild)
+           
+            
+           
+
+        })
+
+
+    </script> 
+}

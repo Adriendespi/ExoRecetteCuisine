@@ -1,0 +1,23 @@
+﻿@model Recette 
+
+<ul>
+    <li>Nom : @Model.Name</li>
+    <li>Description @Model.Description</li>
+    <li>Ingredients</li>
+    <ul>
+        
+        @foreach(string item in Model.Ingredient)
+        {
+            <li>@item</li>
+        }
+        
+        
+             
+        
+        
+        
+              
+    </ul>
+</ul>
+
+
